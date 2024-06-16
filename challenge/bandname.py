@@ -1,0 +1,5 @@
+print("Who are you?")
+name=input()
+print("Where were you born?")
+place=input()
+print("Hi " + name + " from " + place)
