@@ -1,4 +1,5 @@
 from turtle import Turtle
+import random
 
 
 class Snake:
@@ -6,16 +7,31 @@ class Snake:
     def __init__(self,length):
         self.snake = []
         for i in range(length):
-            segment = self.create_segment()
-            segment.goto(0 - (i * 20), 0)
+            segment = self.create_segment((0 - (i * 20), 0))
             self.snake.append(segment)
         self.head = self.snake[0]
 
-    def create_segment(self):
+    def random_color(self):
+        r = lambda: random.randint(0,255)
+        return ('#%02X%02X%02X' % (r(),r(),r()))
+
+    def create_segment(self, coordinates):
         segment = Turtle(shape="square")
-        segment.color("white")
+        segment.color(self.random_color())
         segment.penup()
+        segment.goto(coordinates)
         return segment
+    
+    def extend(self):
+        segment = self.create_segment(self.snake[-1].pos())
+        self.snake.append(segment)
+    
+    def detect_wall_collision(self):
+        if abs(self.head.xcor()) > 300:
+            return False
+        if abs(self.head.ycor()) > 300:
+            return False
+        return True
 
 
     def move(self, speed):
@@ -45,8 +61,8 @@ class Snake:
             self.head.setheading(0)
 
 
-    def check_death(self):
-        for seg_number in range(1,len(self.snake)-1):
-            if self.snake[seg_number].pos() == self.head.pos():
+    def detect_snake_collision(self):
+        for segment in self.snake[1:]:
+            if (self.head.distance(segment) < 10):
                 return False
         return True
