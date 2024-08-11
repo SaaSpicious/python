@@ -37,7 +37,7 @@ scoreboard.refresh(score)
 
 while snake.detect_wall_collision() & snake.detect_snake_collision():
     screen.update()
-    time.sleep(0.08)
+
     snake.move(speed=SPEED)
 
     # Collision detection
