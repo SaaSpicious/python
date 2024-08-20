@@ -7,10 +7,12 @@ import time
 SPEED = 20
 INITIAL_LENGTH = 5
 
+
 def move_snake(snakes, speed):
     for i in range(len(snakes)-1,0,-1):
         snakes[i].goto(snakes[i-1].pos())
     snakes[0].forward(speed)
+
 
 screen = Screen()
 screen.setup(width=600,height=600)
@@ -47,5 +49,7 @@ while snake.detect_wall_collision() & snake.detect_snake_collision():
         score += 1
         scoreboard.refresh(score)
 
-scoreboard.failmessage()
+    time.sleep(0.07)
+
+scoreboard.failmessage(score)
 screen.exitonclick()
