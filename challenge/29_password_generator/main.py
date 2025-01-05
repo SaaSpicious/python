@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
 import random
-import source
 
 PASSWORD_FILE = "passwords.txt"
 MOST_USED_USERNAME = "Dennis.Klein87@gmail.com"
