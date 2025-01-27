@@ -1,0 +1,3 @@
+# This is a demo repository #
+
+Don't you mind me, I'm simply doing the 100 days of code Python challenge on Udemy here...
