@@ -3,7 +3,7 @@ import requests
 
 pixela_endpoint = "https://pixe.la/v1/users"
 USERNAME = "dasdennis87"
-TOKEN = "" #Set a token of your choice!
+TOKEN = "l3f09vcl43767SDF"
 GRAPH_ID = "firstgraph"
 
 user_params = {

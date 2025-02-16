@@ -42,7 +42,7 @@ def get_news(date,news_api_key):
 
 def get_api_keys():
     api_keys = {}
-    file = open("API_KEYS","r")
+    file = open("API_KEYS.keys", "r")
     lines = file.readlines()
     for line in lines:
         list = line.split("=")
